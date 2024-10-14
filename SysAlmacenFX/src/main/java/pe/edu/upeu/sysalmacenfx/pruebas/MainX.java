@@ -30,6 +30,7 @@ public class MainX {
         }
     }
 
+
     public void menu(){
         int opc=0;
         Scanner cs=new Scanner(System.in);

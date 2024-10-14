@@ -26,7 +26,7 @@ public class UnidadMedidaService {
         try {
             UnidadMedida toe=repo.findById(id).get();
             if(toe!=null) {
-                toe.setNombre(to.getNombre());
+                toe.setNombreMedida(to.getNombreMedida());
             }
             return repo.save(toe);
         }catch (Exception e){

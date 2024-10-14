@@ -17,17 +17,18 @@ public class CategoriaService {
 
     //C
     public Categoria save(Categoria to){
-    return repo.save(to);
+        return repo.save(to);
     }
+
     //R
-    public List<Categoria> List(){
+    public List<Categoria> list(){
         return repo.findAll();
     }
     //U
     public Categoria update(Categoria to, Long id){
         try {
             Categoria toe=repo.findById(id).get();
-            if(toe!=null) {
+            if(toe!=null){
                 toe.setNombre(to.getNombre());
             }
             return repo.save(toe);
@@ -36,6 +37,7 @@ public class CategoriaService {
         }
         return null;
     }
+
     public Categoria update(Categoria to){
         return repo.save(to);
     }
@@ -45,26 +47,22 @@ public class CategoriaService {
         repo.deleteById(id);
     }
     //B
-    public Categoria buscarId(Long id){
+    public Categoria searchById(Long id){
         return repo.findById(id).get();
     }
 
-    public List
-            <ComboBoxOption> listaCategoriaCombobox(){
-        List
-                <ComboBoxOption> listar
-                =new ArrayList<>();
-        for
-        (Categoria cate : repo.findAll()) {
-            listar.add(new ComboBoxOption(String
-                    .valueOf(cate.getIdCategoria()),
-                    cate.getNombre()));
 
+    public List<ComboBoxOption> listarCombobox(){
+        List<ComboBoxOption> listar=new ArrayList<>();
+        ComboBoxOption cb;
+        for(Categoria cate : repo.findAll()) {
+            cb=new ComboBoxOption();
+            cb.setKey(String.valueOf(cate.getIdCategoria()));
+            cb.setValue(cate.getNombre());
+            listar.add(cb);
         }
         return listar;
-
     }
-}
 
 
 }

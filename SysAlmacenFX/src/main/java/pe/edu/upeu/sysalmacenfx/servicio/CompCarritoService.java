@@ -1,31 +1,33 @@
 package pe.edu.upeu.sysalmacenfx.servicio;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import pe.edu.upeu.sysalmacenfx.dto.ComboBoxOption;
 import pe.edu.upeu.sysalmacenfx.modelo.Categoria;
+import pe.edu.upeu.sysalmacenfx.modelo.CompCarrito;
 import pe.edu.upeu.sysalmacenfx.modelo.Marca;
-import pe.edu.upeu.sysalmacenfx.repositorio.MarcaRepository;
+import pe.edu.upeu.sysalmacenfx.repositorio.CategoriaRepository;
+import pe.edu.upeu.sysalmacenfx.repositorio.CompCarritoRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
-public class MarcaService {
-
+public class CompCarritoService {
     @Autowired
-    MarcaRepository repo;
-    public Marca save(Marca to){
+    CompCarritoRepository repo;
+    //C
+    public CompCarrito save(CompCarrito to){
         return repo.save(to);
     }
-    public List<Marca> list(){
+    //R
+    public List<CompCarrito> List(){
         return repo.findAll();
     }
-    public Marca update(Marca to, Long id){
+    //U
+    public CompCarrito update(CompCarrito to, Long id){
         try {
-            Marca toe=repo.findById(id).get();
-            if(toe!=null){
-                toe.setNombre(to.getNombre());
+            CompCarrito toe=repo.findById(id).get();
+            if(toe!=null) {
+                toe.setIdCompCarrito(to.getIdCompCarrito());
             }
             return repo.save(toe);
         }catch (Exception e){
@@ -33,24 +35,26 @@ public class MarcaService {
         }
         return null;
     }
-
-    public Marca update(Marca to){
+    public CompCarrito update(CompCarrito to){
         return repo.save(to);
     }
+
+    //D
     public void delete(Long id){
         repo.deleteById(id);
     }
-    public Marca searchById(Long id){
+    //B
+    public CompCarrito searchById(Long id){
         return repo.findById(id).get();
     }
 
     public List<ComboBoxOption> listarCombobox(){
         List<ComboBoxOption> listar=new ArrayList<>();
         ComboBoxOption cb;
-        for(Marca cate : repo.findAll()) {
+        for(CompCarrito cate : repo.findAll()) {
             cb=new ComboBoxOption();
-            cb.setKey(String.valueOf(cate.getIdMarca()));
-            cb.setValue(cate.getNombre()git );
+            cb.setKey(String.valueOf(cate.getIdCompCarrito()));
+            cb.setValue(cate.getNombreProducto());
             listar.add(cb);
         }
         return listar;

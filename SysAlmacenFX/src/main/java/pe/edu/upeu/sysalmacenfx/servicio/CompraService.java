@@ -4,28 +4,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upeu.sysalmacenfx.dto.ComboBoxOption;
 import pe.edu.upeu.sysalmacenfx.modelo.Categoria;
-import pe.edu.upeu.sysalmacenfx.modelo.Marca;
-import pe.edu.upeu.sysalmacenfx.repositorio.MarcaRepository;
+import pe.edu.upeu.sysalmacenfx.modelo.Compra;
+import pe.edu.upeu.sysalmacenfx.repositorio.CategoriaRepository;
+import pe.edu.upeu.sysalmacenfx.repositorio.CompraRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @Service
-public class MarcaService {
-
+public class CompraService {
     @Autowired
-    MarcaRepository repo;
-    public Marca save(Marca to){
+    CompraRepository repo;
+
+    //C
+    public Compra save(Compra to){
         return repo.save(to);
     }
-    public List<Marca> list(){
+
+    //R
+    public List<Compra> list(){
         return repo.findAll();
     }
-    public Marca update(Marca to, Long id){
+    //U
+    public Compra update(Compra to, Long id){
         try {
-            Marca toe=repo.findById(id).get();
+            Compra toe=repo.findById(id).get();
             if(toe!=null){
-                toe.setNombre(to.getNombre());
+                toe.setIdCompra(to.getIdCompra());
             }
             return repo.save(toe);
         }catch (Exception e){
@@ -34,23 +38,27 @@ public class MarcaService {
         return null;
     }
 
-    public Marca update(Marca to){
+    public Compra update(Compra to){
         return repo.save(to);
     }
+
+    //D
     public void delete(Long id){
         repo.deleteById(id);
     }
-    public Marca searchById(Long id){
+    //B
+    public Compra searchById(Long id){
         return repo.findById(id).get();
     }
+
 
     public List<ComboBoxOption> listarCombobox(){
         List<ComboBoxOption> listar=new ArrayList<>();
         ComboBoxOption cb;
-        for(Marca cate : repo.findAll()) {
+        for(Compra cate : repo.findAll()) {
             cb=new ComboBoxOption();
-            cb.setKey(String.valueOf(cate.getIdMarca()));
-            cb.setValue(cate.getNombre()git );
+            cb.setKey(String.valueOf(cate.getIdCompra()));
+            cb.setValue(cate.getNumDoc());
             listar.add(cb);
         }
         return listar;
