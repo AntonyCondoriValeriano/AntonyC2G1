@@ -3,29 +3,31 @@ package pe.edu.upeu.sysalmacenfx.servicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upeu.sysalmacenfx.dto.ComboBoxOption;
-
-import pe.edu.upeu.sysalmacenfx.modelo.Marca;
-import pe.edu.upeu.sysalmacenfx.repositorio.MarcaRepository;
+import pe.edu.upeu.sysalmacenfx.modelo.VentCarrito;
+import pe.edu.upeu.sysalmacenfx.repositorio.VentCarritoRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @Service
-public class MarcaService {
-
+public class VentCarritoService {
     @Autowired
-    MarcaRepository repo;
-    public Marca save(Marca to){
+    VentCarritoRepository repo;
+
+    //C
+    public VentCarrito save(VentCarrito to){
         return repo.save(to);
     }
-    public List<Marca> list(){
+
+    //R
+    public List<VentCarrito> list(){
         return repo.findAll();
     }
-    public Marca update(Marca to, Long id){
+    //U
+    public VentCarrito update(VentCarrito to, Long id){
         try {
-            Marca toe=repo.findById(id).get();
+            VentCarrito toe=repo.findById(id).get();
             if(toe!=null){
-                toe.setNombre(to.getNombre());
+                toe.setPtotal(to.getPtotal());
             }
             return repo.save(toe);
         }catch (Exception e){
@@ -34,23 +36,27 @@ public class MarcaService {
         return null;
     }
 
-    public Marca update(Marca to){
+    public VentCarrito update(VentCarrito to){
         return repo.save(to);
     }
+
+    //D
     public void delete(Long id){
         repo.deleteById(id);
     }
-    public Marca searchById(Long id){
+    //B
+    public VentCarrito searchById(Long id){
         return repo.findById(id).get();
     }
+
 
     public List<ComboBoxOption> listarCombobox(){
         List<ComboBoxOption> listar=new ArrayList<>();
         ComboBoxOption cb;
-        for(Marca cate : repo.findAll()) {
+        for(VentCarrito cate : repo.findAll()) {
             cb=new ComboBoxOption();
-            cb.setKey(String.valueOf(cate.getIdMarca()));
-            cb.setValue(cate.getNombre());
+            cb.setKey(String.valueOf(cate.getIdCarrito()));
+            cb.setValue(cate.getDniruc());
             listar.add(cb);
         }
         return listar;

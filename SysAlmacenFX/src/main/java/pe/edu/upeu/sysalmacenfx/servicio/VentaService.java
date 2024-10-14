@@ -3,29 +3,31 @@ package pe.edu.upeu.sysalmacenfx.servicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upeu.sysalmacenfx.dto.ComboBoxOption;
-
-import pe.edu.upeu.sysalmacenfx.modelo.Marca;
-import pe.edu.upeu.sysalmacenfx.repositorio.MarcaRepository;
+import pe.edu.upeu.sysalmacenfx.modelo.Venta;
+import pe.edu.upeu.sysalmacenfx.repositorio.VentaRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @Service
-public class MarcaService {
-
+public class VentaService {
     @Autowired
-    MarcaRepository repo;
-    public Marca save(Marca to){
+    VentaRepository repo;
+
+    //C
+    public Venta save(Venta to){
         return repo.save(to);
     }
-    public List<Marca> list(){
+
+    //R
+    public List<Venta> list(){
         return repo.findAll();
     }
-    public Marca update(Marca to, Long id){
+    //U
+    public Venta update(Venta to, Long id){
         try {
-            Marca toe=repo.findById(id).get();
+            Venta toe=repo.findById(id).get();
             if(toe!=null){
-                toe.setNombre(to.getNombre());
+                toe.setIdVenta(to.getIdVenta());
             }
             return repo.save(toe);
         }catch (Exception e){
@@ -34,23 +36,27 @@ public class MarcaService {
         return null;
     }
 
-    public Marca update(Marca to){
+    public Venta update(Venta to){
         return repo.save(to);
     }
+
+    //D
     public void delete(Long id){
         repo.deleteById(id);
     }
-    public Marca searchById(Long id){
+    //B
+    public Venta searchById(Long id){
         return repo.findById(id).get();
     }
+
 
     public List<ComboBoxOption> listarCombobox(){
         List<ComboBoxOption> listar=new ArrayList<>();
         ComboBoxOption cb;
-        for(Marca cate : repo.findAll()) {
+        for(Venta cate : repo.findAll()) {
             cb=new ComboBoxOption();
-            cb.setKey(String.valueOf(cate.getIdMarca()));
-            cb.setValue(cate.getNombre());
+            cb.setKey(String.valueOf(cate.getIdVenta()));
+            cb.setValue(cate.getNumDoc());
             listar.add(cb);
         }
         return listar;

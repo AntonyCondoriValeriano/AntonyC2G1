@@ -3,29 +3,31 @@ package pe.edu.upeu.sysalmacenfx.servicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upeu.sysalmacenfx.dto.ComboBoxOption;
-
-import pe.edu.upeu.sysalmacenfx.modelo.Marca;
-import pe.edu.upeu.sysalmacenfx.repositorio.MarcaRepository;
+import pe.edu.upeu.sysalmacenfx.modelo.Emisor;
+import pe.edu.upeu.sysalmacenfx.repositorio.EmisorRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @Service
-public class MarcaService {
-
+public class EmisorService {
     @Autowired
-    MarcaRepository repo;
-    public Marca save(Marca to){
+    EmisorRepository repo;
+
+    //C
+    public Emisor save(Emisor to){
         return repo.save(to);
     }
-    public List<Marca> list(){
+
+    //R
+    public List<Emisor> list(){
         return repo.findAll();
     }
-    public Marca update(Marca to, Long id){
+    //U
+    public Emisor update(Emisor to, Long id){
         try {
-            Marca toe=repo.findById(id).get();
+            Emisor toe=repo.findById(id).get();
             if(toe!=null){
-                toe.setNombre(to.getNombre());
+                toe.setIdEmisor(to.getIdEmisor());
             }
             return repo.save(toe);
         }catch (Exception e){
@@ -34,25 +36,30 @@ public class MarcaService {
         return null;
     }
 
-    public Marca update(Marca to){
+    public Emisor update(Emisor to){
         return repo.save(to);
     }
+
+    //D
     public void delete(Long id){
         repo.deleteById(id);
     }
-    public Marca searchById(Long id){
+    //B
+    public Emisor searchById(Long id){
         return repo.findById(id).get();
     }
+
 
     public List<ComboBoxOption> listarCombobox(){
         List<ComboBoxOption> listar=new ArrayList<>();
         ComboBoxOption cb;
-        for(Marca cate : repo.findAll()) {
+        for(Emisor cate : repo.findAll()) {
             cb=new ComboBoxOption();
-            cb.setKey(String.valueOf(cate.getIdMarca()));
-            cb.setValue(cate.getNombre());
+            cb.setKey(String.valueOf(cate.getIdEmisor()));
+            cb.setValue(cate.getDepartamento());
             listar.add(cb);
         }
         return listar;
     }
+
 }

@@ -3,27 +3,29 @@ package pe.edu.upeu.sysalmacenfx.servicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upeu.sysalmacenfx.dto.ComboBoxOption;
-
-import pe.edu.upeu.sysalmacenfx.modelo.Marca;
-import pe.edu.upeu.sysalmacenfx.repositorio.MarcaRepository;
+import pe.edu.upeu.sysalmacenfx.modelo.Perfil;
+import pe.edu.upeu.sysalmacenfx.repositorio.PerfilRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @Service
-public class MarcaService {
-
+public class PerfilService {
     @Autowired
-    MarcaRepository repo;
-    public Marca save(Marca to){
+    PerfilRepository repo;
+
+    //C
+    public Perfil save(Perfil to){
         return repo.save(to);
     }
-    public List<Marca> list(){
+
+    //R
+    public List<Perfil> list(){
         return repo.findAll();
     }
-    public Marca update(Marca to, Long id){
+    //U
+    public Perfil update(Perfil to, Long id){
         try {
-            Marca toe=repo.findById(id).get();
+            Perfil toe=repo.findById(id).get();
             if(toe!=null){
                 toe.setNombre(to.getNombre());
             }
@@ -34,22 +36,26 @@ public class MarcaService {
         return null;
     }
 
-    public Marca update(Marca to){
+    public Perfil update(Perfil to){
         return repo.save(to);
     }
+
+    //D
     public void delete(Long id){
         repo.deleteById(id);
     }
-    public Marca searchById(Long id){
+    //B
+    public Perfil searchById(Long id){
         return repo.findById(id).get();
     }
+
 
     public List<ComboBoxOption> listarCombobox(){
         List<ComboBoxOption> listar=new ArrayList<>();
         ComboBoxOption cb;
-        for(Marca cate : repo.findAll()) {
+        for(Perfil cate : repo.findAll()) {
             cb=new ComboBoxOption();
-            cb.setKey(String.valueOf(cate.getIdMarca()));
+            cb.setKey(String.valueOf(cate.getIdPerfil()));
             cb.setValue(cate.getNombre());
             listar.add(cb);
         }

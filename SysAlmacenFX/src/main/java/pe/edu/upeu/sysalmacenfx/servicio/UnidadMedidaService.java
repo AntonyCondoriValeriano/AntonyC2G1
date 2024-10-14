@@ -2,13 +2,14 @@ package pe.edu.upeu.sysalmacenfx.servicio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import pe.edu.upeu.sysalmacenfx.modelo.Categoria;
 import pe.edu.upeu.sysalmacenfx.modelo.UnidadMedida;
 import pe.edu.upeu.sysalmacenfx.repositorio.CategoriaRepository;
 import pe.edu.upeu.sysalmacenfx.repositorio.UnidadMedidaRepository;
 
 import java.util.List;
-@Repository
+@Service
 public class UnidadMedidaService {
     @Autowired
     UnidadMedidaRepository repo;
