@@ -25,4 +25,8 @@ public class Cliente {
     private String repLegal;
     @Column(name = "tipo_documento", nullable = false, length = 12)
     private String tipoDocumento;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf

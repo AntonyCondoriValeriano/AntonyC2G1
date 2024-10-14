@@ -17,6 +17,10 @@ public class CompCarrito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_compcarrito")
     private Long idCompCarrito;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
     @ManyToOne
     @JoinColumn(name = "id_proveedor", nullable = false)
     private Proveedor proveedor;
@@ -35,6 +39,10 @@ public class CompCarrito {
     @Column(name = "estado", nullable = false)
     private int estado;
     @ManyToOne
+<<<<<<< HEAD
     @JoinColumn(name = "id_usuario",  nullable = false)
+=======
+    @JoinColumn(name = "id_usuario", nullable = false)
+>>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
     private Usuario usuario;
 }

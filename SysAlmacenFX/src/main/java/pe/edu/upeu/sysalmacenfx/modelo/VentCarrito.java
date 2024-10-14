@@ -36,4 +36,8 @@ public class VentCarrito {
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
     public Usuario usuario;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf

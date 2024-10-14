@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
 @Entity
 @Table(name = "upeu_marca")
 public class Marca {

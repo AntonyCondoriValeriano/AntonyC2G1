@@ -6,7 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -45,12 +48,19 @@ public class Compra {
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_comp", nullable = false)
     private LocalDate fechaComp;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
     @Column(name = "tipo_doc", nullable = false, length = 12)
     private String tipoDoc;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "fecha_reg", nullable = false)
     private LocalDateTime fechaReg;
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
     @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CompraDetalle> compraDetalles;
 }

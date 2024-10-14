@@ -50,7 +50,7 @@ public class MarcaService {
         for(Marca cate : repo.findAll()) {
             cb=new ComboBoxOption();
             cb.setKey(String.valueOf(cate.getIdMarca()));
-            cb.setValue(cate.getNombre()git );
+            cb.setValue(cate.getNombre());
             listar.add(cb);
         }
         return listar;
