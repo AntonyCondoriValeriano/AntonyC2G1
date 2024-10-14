@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-<<<<<<< HEAD
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-=======
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
->>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -38,23 +34,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-<<<<<<< HEAD
-=======
-		<!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
-		<dependency>
-			<groupId>jakarta.validation</groupId>
-			<artifactId>jakarta.validation-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.18.0</version>
-		</dependency>
-
-
->>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -78,7 +57,6 @@
 			<artifactId>sqlite-jdbc</artifactId>
 			<version>3.46.0.0</version>
 		</dependency>
-<<<<<<< HEAD
 
 		<!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
 		<dependency>
@@ -98,11 +76,6 @@
 
 	</dependencies>
 
-=======
-	</dependencies>
-
-
->>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
 	<build>
 		<plugins>
 			<plugin>
@@ -120,8 +93,4 @@
 		</plugins>
 	</build>
 
-<<<<<<< HEAD
 </project>
-=======
-</project>
->>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
