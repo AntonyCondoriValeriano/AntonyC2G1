@@ -7,4 +7,3 @@ import pe.edu.upeu.sysalmacenfx.modelo.Categoria;
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 }
-

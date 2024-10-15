@@ -6,4 +6,5 @@ import pe.edu.upeu.sysalmacenfx.modelo.Marca;
 
 @Repository
 public interface MarcaRepository extends JpaRepository<Marca, Long> {
+
 }

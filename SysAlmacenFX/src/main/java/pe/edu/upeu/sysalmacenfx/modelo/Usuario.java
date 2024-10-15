@@ -5,10 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-<<<<<<< HEAD
-=======
-import pe.edu.upeu.sysalmacenfx.modelo.Perfil;
->>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
 
 @Builder
 @NoArgsConstructor
@@ -31,9 +27,5 @@ public class Usuario {
     @JoinColumn(name = "id_perfil", referencedColumnName = "id_perfil")
     @ManyToOne(optional = false)
     private Perfil idPerfil;
-<<<<<<< HEAD
 }
 
-=======
-}
->>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf

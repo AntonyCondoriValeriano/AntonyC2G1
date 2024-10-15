@@ -17,7 +17,7 @@ public class CategoriaService {
 
     //C
     public Categoria save(Categoria to){
-        return repo.save(to);
+    return repo.save(to);
     }
 
     //R

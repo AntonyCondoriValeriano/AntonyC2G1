@@ -33,8 +33,4 @@ public class CompraDetalle {
             nullable = false, foreignKey = @ForeignKey(name =
             "FK_PRODUCTO_COMPRADETALLE"))
     private Producto producto;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f8f5c08cc55d09348cbe8d3bb2bcbcc5e3873faf
