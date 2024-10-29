@@ -276,17 +276,18 @@ public class ProductoController {
             validarCampos(violacionesOrdenadasPorPropiedad);
         }
     }
+
     private void filtrarProductos(String filtro) {
         if (filtro == null || filtro.isEmpty()) {
-            // Si el filtro está vacío, volver a mostrar la lista completa
+// Si el filtro está vacío, volver a mostrar la lista completa
             tableView.getItems().clear();
             tableView.getItems().addAll(listarProducto);
         } else {
-            // Aplicar el filtro
+// Aplicar el filtro
             String lowerCaseFilter = filtro.toLowerCase();
             List<Producto> productosFiltrados = listarProducto.stream()
                     .filter(producto -> {
-                        // Verificar si el filtro coincide con alguno de los campos
+// Verificar si el filtro coincide con alguno de los campos
                         if (producto.getNombre().toLowerCase().contains(lowerCaseFilter)) {
                             return true;
                         }
@@ -310,6 +311,7 @@ public class ProductoController {
             tableView.getItems().addAll(productosFiltrados);
         }
     }
+
     public void editForm(Producto producto){
         txtNombreProducto.setText(producto.getNombre());
         txtPUnit.setText(producto.getPu().toString());
@@ -317,21 +319,21 @@ public class ProductoController {
         txtUtilidad.setText(producto.getUtilidad().toString());
         txtStock.setText(producto.getStock().toString());
         txtStockOld.setText(producto.getStockOld().toString());
-        // Seleccionar el ítem en cbxMarca según el ID de Marca
+// Seleccionar el ítem en cbxMarca según el ID de Marca
         cbxMarca.getSelectionModel().select(
                 cbxMarca.getItems().stream()
                         .filter(marca -> Long.parseLong(marca.getKey())==producto.getMarca().getIdMarca())
                         .findFirst()
                         .orElse(null)
         );
-        // Seleccionar el ítem en cbxCategoria según el ID de Categoria
+// Seleccionar el ítem en cbxCategoria según el ID de Categoria
         cbxCategoria.getSelectionModel().select(
                 cbxCategoria.getItems().stream()
                         .filter(categoria -> Long.parseLong(categoria.getKey())==producto.getCategoria().getIdCategoria())
                         .findFirst()
                         .orElse(null)
         );
-        // Seleccionar el ítem en cbxUnidMedida según el ID de Unidad de Medida
+// Seleccionar el ítem en cbxUnidMedida según el ID de Unidad de Medida
         cbxUnidMedida.getSelectionModel().select(
                 cbxUnidMedida.getItems().stream()
                         .filter(unidad -> Long.parseLong(unidad.getKey())==producto.getUnidadMedida().getIdUnidad())
