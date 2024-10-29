@@ -7,8 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+import pe.edu.upeu.sysalmacenfx.SysAlmacenFxApplication;
 import pe.edu.upeu.sysalmacenfx.dto.MenuMenuItenTO;
 import pe.edu.upeu.sysalmacenfx.dto.SessionManager;
 import pe.edu.upeu.sysalmacenfx.servicio.MenuMenuItemDao;
@@ -137,9 +140,16 @@ public class GUIMainFX {
             }
 
 
-            if (((MenuItem) e.getSource()).getId().equals("mimiselectall")) {
+            if (((MenuItem) e.getSource()).getId().equals("mimisalir")) {
                 tabPaneFx.getTabs().clear();
-            // Añade la lógica para "mimiselectall"
+
+                try {
+                    builder.application().setWebApplicationType(WebApplicationType.NONE);
+                    configurableApplicationContext = builder.run(getParameters().getRaw().toArray(new String[0]));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+                }(Exception ex){
+                    ex.printStackTrace
+                }
             }
         }
     }

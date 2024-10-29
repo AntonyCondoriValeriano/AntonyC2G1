@@ -1,5 +1,4 @@
-package pe.edu.upeu.sysalmacenfx.control;
-
+package  pe.edu.upeu.sysalmacenfx.control;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +24,7 @@ import pe.edu.upeu.sysalmacenfx.servicio.UsuarioService;
 import java.io.IOException;
 
 @Component
-public class LoginController {
+public class LoginController{
 
     @Autowired
     UsuarioService us;
@@ -80,9 +79,6 @@ public class LoginController {
             }
         }catch (Exception e){
             System.out.println(e.getMessage());
-        } }
-
-
-
-
+        }
+    }
 }
