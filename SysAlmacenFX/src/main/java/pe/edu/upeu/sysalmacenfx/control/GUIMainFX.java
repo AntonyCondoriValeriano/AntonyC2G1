@@ -1,17 +1,19 @@
 package pe.edu.upeu.sysalmacenfx.control;
 
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.WebApplicationType;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-import pe.edu.upeu.sysalmacenfx.SysAlmacenFxApplication;
 import pe.edu.upeu.sysalmacenfx.dto.MenuMenuItenTO;
 import pe.edu.upeu.sysalmacenfx.dto.SessionManager;
 import pe.edu.upeu.sysalmacenfx.servicio.MenuMenuItemDao;
@@ -39,8 +41,17 @@ public class GUIMainFX {
     private BorderPane bp;
     @FXML
     private MenuBar menuBarFx;
+
+    private Parent parent;
+    Stage stage;
+
     @FXML
     public void initialize() {
+        Platform.runLater(() -> {
+            stage = (Stage) tabPaneFx.getScene().getWindow();
+            System.out.println("El título del stage es: " + stage.getTitle());
+        });
+
         myresources = util.detectLanguage(userPrefs.get("IDIOMAX", "en"));
         mmiDao = new MenuMenuItemDao();
         String perf= SessionManager.getInstance().getNombrePerfil();
@@ -140,17 +151,32 @@ public class GUIMainFX {
             }
 
 
-            if (((MenuItem) e.getSource()).getId().equals("mimisalir")) {
-                tabPaneFx.getTabs().clear();
+            if(((MenuItem) e.getSource()).getId().equals("mimisalir")) {
 
-                try {
-                    builder.application().setWebApplicationType(WebApplicationType.NONE);
-                    configurableApplicationContext = builder.run(getParameters().getRaw().toArray(new String[0]));
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
-                    System.out.println("");
-                }(Exception ex){
-                    ex.printStackTrace
-                }
+                tabPaneFx.getTabs().clear();
+               try {
+                   FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+                   fxmlLoader.setControllerFactory(context::getBean);
+                   parent= fxmlLoader.load();
+                   Scene scene = new Scene(parent);
+                   stage.sizeToScene();
+                   stage.setScene(scene);
+                   stage.centerOnScreen();
+                   stage.setTitle("SysAlmacen Spring Java-FX");
+                   stage.setResizable(false);
+                   stage.show();
+
+
+               }catch (Exception ex){
+                   throw new RuntimeException(ex);
+               }
+
+            }
+
+
+            if (((MenuItem) e.getSource()).getId().equals("mimiselectall")) {
+                tabPaneFx.getTabs().clear();
+                // Añade la lógica para "mimiselectall"
             }
         }
     }
@@ -163,7 +189,4 @@ public class GUIMainFX {
     }
 
 
-
-
-    ////
 }
