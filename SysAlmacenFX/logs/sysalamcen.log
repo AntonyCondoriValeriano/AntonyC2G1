@@ -1,5 +1,0 @@
-2024-10-29T02:01:59.769-05:00  WARN 3668 --- [SysAlmacenFX] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h54m48s509ms381µs900ns).
-2024-10-29T22:55:14.067-05:00  WARN 3668 --- [SysAlmacenFX] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20h53m18s172ms754µs200ns).
-2024-10-29T22:55:48.892-05:00  INFO 3668 --- [SysAlmacenFX] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-10-29T22:55:48.923-05:00  INFO 3668 --- [SysAlmacenFX] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-10-29T22:55:48.939-05:00  INFO 3668 --- [SysAlmacenFX] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
